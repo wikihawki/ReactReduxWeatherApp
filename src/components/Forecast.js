@@ -6,11 +6,10 @@ import {
 import PropTypes from 'prop-types';
 
 
-
 import HorizontalFlatListItem from "../components/HorizontalFlatListItem";
 
 
-import { ForecastStyle} from '../styles/styles';
+import {ForecastStyle} from '../styles/styles';
 import {Utils} from '../utils/utils';
 
 export default class Forecast extends Component {
@@ -33,16 +32,17 @@ export default class Forecast extends Component {
         const {weather} = this.props;
         const formattedForecastData = this.formatData();
         return (
-            <View style={[ForecastStyle.listContainer,  { backgroundColor: Utils.weatherConditions[weather].color }]}>
+            <View style={[ForecastStyle.listContainer, {backgroundColor: Utils.weatherConditions[weather].color}]}>
                 <View style={ForecastStyle.container}>
 
                     <FlatList
                         style={ForecastStyle.dataContainer}
                         data={formattedForecastData.list}
                         horizontal={true}
-                        renderItem={({item,index}) => {
+                        renderItem={({item, index}) => {
                             return (
-                                <HorizontalFlatListItem item={item} index={index} parentalFlatList={this} navigation={this.props.navigation}/>
+                                <HorizontalFlatListItem item={item} index={index} parentalFlatList={this}
+                                                        navigation={this.props.navigation}/>
                             )
                         }}
                         keyExtractor={item => item.dt_txt}

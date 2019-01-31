@@ -25,18 +25,19 @@ export default class HorizontalFlatListItem extends Component {
 
 
     render() {
-        const {item, index } = this.props;
+        const {item, index} = this.props;
         const formattedWeatherData = this.formatData();
         return (
             <View style={HorizontalFlatListItemStyle.itemContainer}>
-                <TouchableOpacity style={HorizontalFlatListItemStyle.button} onPress={() => (this.props.navigation.navigate(('DetailedWeather'), {index: index}))}>
-                <Text style={HorizontalFlatListItemStyle.item}>
-                    {item.dt_txt}
-                </Text>
-                <Icon name={Utils.weatherConditions[formattedWeatherData.weather].icon} size={30} color={'#fff'}/>
-                <Text style={HorizontalFlatListItemStyle.degree}>
-                    {formattedWeatherData.temperature}˚C
-                </Text>
+                <TouchableOpacity style={HorizontalFlatListItemStyle.button}
+                                  onPress={() => (this.props.navigation.navigate(('DetailedWeather'), {index: index}))}>
+                    <Text style={HorizontalFlatListItemStyle.item}>
+                        {item.dt_txt}
+                    </Text>
+                    <Icon name={Utils.weatherConditions[formattedWeatherData.weather].icon} size={30} color={'#fff'}/>
+                    <Text style={HorizontalFlatListItemStyle.degree}>
+                        {formattedWeatherData.temperature}˚C
+                    </Text>
                 </TouchableOpacity>
             </View>
         );
